@@ -1,0 +1,33 @@
+@font-face {
+    font-family: roboto;
+    src: url(./fonts/Roboto-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: roboto;
+    line-height: 1.3em;
+}
+
+/*  PAGE LAYOUT   */
+.main-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 3fr 3em;
+}
+
+.header {
+    grid-column: 1 / -1;
+
+    display: grid;
+    place-items: center;
+    background-color: rgb(195, 252, 185);
+}
+
+.books-container {}
+
+.form-contrainer {}
+
+.footer {}

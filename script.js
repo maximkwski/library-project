@@ -29,7 +29,7 @@ function displayBooks(myLibrary) {
     let booksContainer = document.getElementById('books-container'); // Assuming there's a container element with id 'books-container'
   
     // Clear any existing content in the container
-    booksContainer.innerHTML = '';
+    // booksContainer.innerHTML = '';
   
     // Loop through the array of book objects
     for (let i = 0; i < myLibrary.length; i++) {
@@ -61,6 +61,4 @@ function displayBooks(myLibrary) {
 
 displayBooks(myLibrary);
   
-
-
 // addBookToLibrary();
