@@ -15,7 +15,9 @@
 .main-container {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 3fr 3em;
+    grid-template-rows: minmax(60px, 1fr) 4fr min-content;
+
+    height: 100vh;
 }
 
 .header {
@@ -23,11 +25,46 @@
 
     display: grid;
     place-items: center;
-    background-color: rgb(195, 252, 185);
+    background-color: rgb(219, 240, 216);
 }
 
-.books-container {}
+.books-container {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
 
-.form-contrainer {}
+    background-color: rgb(206, 253, 240);
+    padding: 1em;
+}
 
-.footer {}
+.form-contrainer {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    background-color: rgb(196, 247, 243);
+    padding: 1em;
+}
+
+footer {
+    grid-row: 3 / -1;
+    grid-column: 1 / -1;
+
+    display: grid;
+    place-items: center;
+    background-color: rgb(217, 218, 217);
+}
+
+/* books container */
+
+.books-container>h2 {
+    padding-bottom: 0.5em;
+}
+
+#books-collection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5em;
+}
+
+.card {
+    border: 1px solid black;
+    height: 220px;
+}

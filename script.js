@@ -2,6 +2,12 @@ const myLibrary = [
     {title: 'The Seven Husbands of Evelyn Hugo', author: 'Taylor Jenkins Reid', pages: 320, read: 'yes'},
     {title: 'To Kill a Mockingbird', author: 'Harper Lee', pages: 421, read: 'not read yet'},
     {title: 'The Alchemist', author: 'Paulo Coelho', pages: 288, read: 'not read yet'},
+    {title: 'To Kill a Mockingbird', author: 'Harper Lee', pages: 421, read: 'not read yet'},
+    {title: 'The Alchemist', author: 'Paulo Coelho', pages: 288, read: 'not read yet'},
+    {title: 'To Kill a Mockingbird', author: 'Harper Lee', pages: 421, read: 'not read yet'},
+    {title: 'The Alchemist', author: 'Paulo Coelho', pages: 288, read: 'not read yet'},
+    {title: 'To Kill a Mockingbird', author: 'Harper Lee', pages: 421, read: 'not read yet'},
+    {title: 'The Alchemist', author: 'Paulo Coelho', pages: 288, read: 'not read yet'}
 ];
 
 // function Book(title, author, pages, read) {
@@ -26,7 +32,7 @@ function addBookToLibrary() {
 
 
 function displayBooks(myLibrary) {
-    let booksContainer = document.getElementById('books-container'); // Assuming there's a container element with id 'books-container'
+    let booksContainer = document.getElementById('books-collection'); // Assuming there's a container element with id 'books-container'
   
     // Clear any existing content in the container
     // booksContainer.innerHTML = '';
