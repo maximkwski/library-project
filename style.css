@@ -3,6 +3,16 @@
     src: url(./fonts/Roboto-Regular.ttf);
 }
 
+@font-face {
+    font-family: lobster;
+    src: url(./fonts/Lobster-Regular.ttf);
+}
+
+@font-face {
+    font-family: satisfy;
+    src: url(./fonts/Satisfy-Regular.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -22,10 +32,12 @@
 
 .header {
     grid-column: 1 / -1;
+    box-shadow: 0px 2px 10px rgb(189, 188, 188);
 
     display: grid;
     place-items: center;
-    background-color: rgb(219, 240, 216);
+    overflow: hidden;
+    position: relative;
 }
 
 .books-container {
@@ -52,6 +64,23 @@ footer {
     background-color: rgb(217, 218, 217);
 }
 
+/* header */
+.header>img {
+    opacity: 0.6;
+    position: absolute;
+    left: 0;
+    top: -120px;
+    width: 100%;
+    height: auto;
+}
+
+.header>h1 {
+    position: relative;
+    font-family: lobster, sans-serif;
+    font-size: 2.5em;
+}
+
+
 /* books container */
 
 .books-container>h2 {
@@ -60,11 +89,32 @@ footer {
 
 #books-collection {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, 180px);
     gap: 1.5em;
 }
 
 .card {
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
     height: 220px;
+    padding: 0.3em;
+    background-color: rgb(208, 168, 118);
+    border-left: 8px solid rgb(230, 216, 20);
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 10px;
+
+    box-shadow: 5px 5px 5px rgb(192, 192, 189);
+
+}
+
+.card>h3 {
+    padding: 1em 0;
+    font-family: satisfy, sans-serif;
+    font-size: 1.3em;
+}
+
+.card>p {
+    color: rgb(236, 210, 184);
 }

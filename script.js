@@ -46,7 +46,7 @@ function displayBooks(myLibrary) {
       card.classList.add('card');
   
       // Create elements for book information
-      let title = document.createElement('h2');
+      let title = document.createElement('h3');
       title.textContent = book.title;
   
       let author = document.createElement('p');
