@@ -29,34 +29,49 @@ function displayBooks(myLibrary) {
     // Loop through the array of book objects
     for (let i = 0; i < myLibrary.length; i++) {
       let book = myLibrary[i];
+      let bookIndex = myLibrary.indexOf(book);
+      
   
       // Create a card element for each book
-      let card = document.createElement('div');
+      const card = document.createElement('div');
       card.classList.add('card');
   
       // Create elements for book information
-      let title = document.createElement('h3');
+      const title = document.createElement('h3');
       title.textContent = book.title;
   
-      let author = document.createElement('p');
+      const author = document.createElement('p');
       author.textContent = 'By ' + book.author;
   
-      let pages = document.createElement('p');
+      const pages = document.createElement('p');
       pages.textContent = book.pages + ' pages';
 
-      let read = document.createElement('p');
+      const read = document.createElement('p');
       read.textContent = book.read;
+
+      const removeButton = document.createElement("button");
+      removeButton.innerHTML = "Remove";
+      removeButton.setAttribute("data-index", bookIndex); // Set data-attribute with the index
+      removeButton.addEventListener("click", removeBook);
   
       // Append book information to the card
       card.appendChild(title);
       card.appendChild(author);
       card.appendChild(pages);
       card.appendChild(read);
+      card.appendChild(removeButton);
   
       // Append the card to the books container
       booksContainer.appendChild(card);
     }
   }
+
+// Function to remove a book from the library
+function removeBook(event) {
+    let index = event.target.getAttribute("data-index"); // Get the index from the data-attribute
+    myLibrary.splice(index, 1); // Remove the book from the library array
+    displayBooks(myLibrary); // Redisplay the updated library
+}  
 
 displayBooks(myLibrary);
 

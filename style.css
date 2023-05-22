@@ -64,6 +64,8 @@ footer {
     display: grid;
     place-items: center;
     background-color: rgb(217, 218, 217);
+    text-align: center;
+    padding: 0.5em 0;
 }
 
 /* header */
@@ -177,4 +179,16 @@ form button {
     border-radius: 5px;
     cursor: pointer;
     align-self: center;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer img {
+    width: 15px;
+}
+
+footer a:hover {
+    color: white;
 }
