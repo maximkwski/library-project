@@ -153,6 +153,10 @@ form input {
     border-radius: 5px;
 }
 
+form input#title {
+    width: max-content;
+}
+
 form .radio-section {
     padding-top: 1em;
 }

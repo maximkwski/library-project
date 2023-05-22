@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="form-contrainer">
-            <form action="#" method="get">
+            <form id="myForm" action="#" method="get">
                 <h2>Add a Book</h2>
                 <div>
                     <label for="title">Book Title</label><br />
@@ -40,19 +40,19 @@
                 <div class="radio-section">
                     <h4>Have you read this book?</h4>
                     <div>
-                        <input type="radio" id="finished" name="have-read" value="finished">
+                        <input type="radio" id="finished" name="have-read" value="Finished">
                         <label for="finished">Finished</label><br>
                     </div>
                     <div>
-                        <input type="radio" id="in-process" name="have-read" value="in-process">
+                        <input type="radio" id="in-process" name="have-read" value="In Process">
                         <label for="in-process">In Process</label><br>
                     </div>
                     <div>
-                        <input type="radio" id="not-yet" name="have-read" value="not-yet">
+                        <input type="radio" id="not-yet" name="have-read" value="Not Read Yet">
                         <label for="not-yet">Not Yet</label><br>
                     </div>
                 </div>
-                <button type="submit" onclick="addBookToLibrary()">Add</button>
+                <button type="submit">Add</button>
             </form>
         </div>
         <footer>
