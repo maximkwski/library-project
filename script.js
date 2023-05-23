@@ -1,24 +1,32 @@
 const myLibrary = [
-    {title: 'The Seven Husbands of Evelyn Hugo', author: 'Taylor Jenkins Reid', pages: 320, read: 'Finished'},
-    {title: 'To Kill a Mockingbird', author: 'Harper Lee', pages: 421, read: 'Not Read Yet'},
-    {title: 'The Alchemist', author: 'Paulo Coelho', pages: 288, read: 'Not Read Yet'},
-    {title: 'Zuchi Zuck', author: 'James Newman', pages: 321, read: 'In Process'},
-    {title: 'The Alco', author: 'Paul Coal', pages: 281, read: 'Finished'},
+    // {title: 'The Seven Husbands of Evelyn Hugo', author: 'Taylor Jenkins Reid', pages: 320, read: 'Finished'},
+    // {title: 'To Kill a Mockingbird', author: 'Harper Lee', pages: 421, read: 'Not Read Yet'},
+    // {title: 'The Alchemist', author: 'Paulo Coelho', pages: 288, read: 'Not Read Yet'},
+    // {title: 'Zuchi Zuck', author: 'James Newman', pages: 321, read: 'In Process'},
+    new Book ('The Alco','Paul Coal', 281 ,'Finished'),
 ];
 
-// function Book(title, author, pages, read) {
-//     this.title = title,
-//     this.author = author,
-//     this.pages = pages,
-//     this.read = read,
-//     this.info = function() {
-//         return (`${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`)
-//     }
-// }
-
-function addBookToLibrary() {
-    myLibrary.push()
+function Book(title, author, pages, readStatus) {
+    this.title = title,
+    this.author = author,
+    this.pages = pages,
+    this.readStatus = readStatus
 }
+
+// Prototype function to toggle the read status
+Book.prototype.toggleReadStatus = function() {
+    if (this.readStatus === "Not Read Yet") {
+        this.readStatus = "In Process";
+    } else if (this.readStatus === "In Process") {
+        this.readStatus = "Finished";
+    } else if (this.readStatus === "Finished") {
+        this.readStatus = "Not Read Yet";
+    }
+};
+
+// function addBookToLibrary() {
+//     myLibrary.push()
+// }
 
 function displayBooks(myLibrary) {
     let booksContainer = document.getElementById('books-collection'); // Assuming there's a container element with id 'books-container'
@@ -46,29 +54,45 @@ function displayBooks(myLibrary) {
       const pages = document.createElement('p');
       pages.textContent = book.pages + ' pages';
 
-      const read = document.createElement('p');
-      read.textContent = book.read;
+      const readStatus = document.createElement('p');
+      readStatus.textContent = book.readStatus;
 
       const removeButton = document.createElement("button");
       removeButton.innerHTML = "Remove";
-      removeButton.setAttribute("data-index", bookIndex); // Set data-attribute with the index
+      removeButton.setAttribute("data-remove", bookIndex); // Set data-attribute with the index
       removeButton.addEventListener("click", removeBook);
+
+      const editBtn = document.createElement("button");
+      editBtn.innerHTML = "Edit Status";
+      editBtn.setAttribute("data-edit", bookIndex);
+      editBtn.addEventListener("click", toggleReadStatus);
+      
   
       // Append book information to the card
       card.appendChild(title);
       card.appendChild(author);
       card.appendChild(pages);
-      card.appendChild(read);
+      card.appendChild(readStatus);
       card.appendChild(removeButton);
+      card.appendChild(editBtn);
   
       // Append the card to the books container
       booksContainer.appendChild(card);
     }
+}
+
+// Function to toggle the read status of a book
+function toggleReadStatus(event) {
+    const index = event.target.getAttribute("data-edit"); // Get the index from the data-attribute
+    const book = myLibrary[index]; // Get the book object from the library array
+    console.log(event);
+    book.toggleReadStatus();  // Toggle the read status using the Book prototype function
+    displayBooks(myLibrary); // Redisplay the updated library
   }
 
 // Function to remove a book from the library
 function removeBook(event) {
-    let index = event.target.getAttribute("data-index"); // Get the index from the data-attribute
+    const index = event.target.getAttribute("data-index"); // Get the index from the data-attribute
     myLibrary.splice(index, 1); // Remove the book from the library array
     displayBooks(myLibrary); // Redisplay the updated library
 }  
