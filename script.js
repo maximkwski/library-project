@@ -1,9 +1,13 @@
 const myLibrary = [
-    // {title: 'The Seven Husbands of Evelyn Hugo', author: 'Taylor Jenkins Reid', pages: 320, read: 'Finished'},
-    // {title: 'To Kill a Mockingbird', author: 'Harper Lee', pages: 421, read: 'Not Read Yet'},
-    // {title: 'The Alchemist', author: 'Paulo Coelho', pages: 288, read: 'Not Read Yet'},
-    // {title: 'Zuchi Zuck', author: 'James Newman', pages: 321, read: 'In Process'},
-    new Book ('The Alco','Paul Coal', 281 ,'Finished'),
+    new Book ('The Seven Husbands of Evelyn Hugo test test test test test', 'Taylor Jenkins Reid Test test test test', 320, 'Finished'),
+    new Book ('To Kill a Mockingbird', 'Harper Lee',421, 'Not Read Yet'),
+    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
+    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
+    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
+    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
+    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
+    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
+    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet')
 ];
 
 function Book(title, author, pages, readStatus) {
@@ -24,12 +28,8 @@ Book.prototype.toggleReadStatus = function() {
     }
 };
 
-// function addBookToLibrary() {
-//     myLibrary.push()
-// }
-
 function displayBooks(myLibrary) {
-    let booksContainer = document.getElementById('books-collection'); // Assuming there's a container element with id 'books-container'
+    let booksContainer = document.getElementById('books-collection');
   
     // Clear any existing content in the container
     booksContainer.innerHTML = '';
@@ -85,14 +85,13 @@ function displayBooks(myLibrary) {
 function toggleReadStatus(event) {
     const index = event.target.getAttribute("data-edit"); // Get the index from the data-attribute
     const book = myLibrary[index]; // Get the book object from the library array
-    console.log(event);
     book.toggleReadStatus();  // Toggle the read status using the Book prototype function
     displayBooks(myLibrary); // Redisplay the updated library
   }
 
 // Function to remove a book from the library
 function removeBook(event) {
-    const index = event.target.getAttribute("data-index"); // Get the index from the data-attribute
+    const index = event.target.getAttribute("data-remove"); // Get the index from the data-attribute
     myLibrary.splice(index, 1); // Remove the book from the library array
     displayBooks(myLibrary); // Redisplay the updated library
 }  
@@ -107,9 +106,7 @@ document.getElementById("myForm").addEventListener("submit", function(event) {
     let newPages = document.getElementById('pages').value;
     let haveRead = document.querySelector('input[name="have-read"]:checked').value;
 
-    const newBook = {title: newTitle, author: newAuthor, pages: newPages, read: haveRead};
-
-    myLibrary.push(newBook);
+    myLibrary.push(new Book (newTitle, newAuthor, newPages, haveRead));
     displayBooks(myLibrary);
 
     document.getElementById('myForm').reset();
