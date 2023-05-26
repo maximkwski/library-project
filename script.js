@@ -46,9 +46,9 @@ function displayBooks(myLibrary) {
 
                    targetedStatus.classList.add('color-toggle');
                    
-                   // setTimeout(function() {
-                   //   targetedStatus.classList.remove('color-toggle');
-                   // }, 1000);
+                //    setTimeout(function() {
+                //      targetedStatus.classList.remove('color-toggle');
+                //    }, 1000);
                    console.log(targetedStatus);
                    console.log(colorStatus);
 
@@ -107,6 +107,8 @@ function toggleReadStatus(event) {
     book.toggleReadStatus();  // Toggle the read status using the Book prototype function
     displayBooks(myLibrary); // Redisplay the updated library
   }
+
+
 
 // Function to remove a book from the library
 function removeBook(event) {
