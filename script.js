@@ -45,6 +45,7 @@ function displayBooks(myLibrary) {
                    const colorStatus = targetedStatus.getAttribute('data-color');
 
                    targetedStatus.classList.add('color-toggle');
+                   
                    // setTimeout(function() {
                    //   targetedStatus.classList.remove('color-toggle');
                    // }, 1000);
