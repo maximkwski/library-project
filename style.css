@@ -111,8 +111,10 @@ footer {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     border-radius: 10px;
+    padding-bottom: 0.5em;
 
     box-shadow: 5px 5px 5px rgb(192, 192, 189);
+
 
 }
 
@@ -126,9 +128,52 @@ footer {
     color: rgb(249, 221, 193);
 }
 
-/* form */
+.card p:nth-child(4) {
+    margin-bottom: 1em;
 
-.form-contrainer {}
+    /* transition: color 2s ease; */
+}
+
+.color-toggle {
+    color: white !important;
+}
+
+
+
+.card .btnDiv {
+    margin-top: auto;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.card .btnDiv>button {
+    width: 4.5em;
+    height: 4.5em;
+    border-radius: 50%;
+    border: none;
+    color: white;
+
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.card .btnDiv>button:nth-child(1) {
+    background-color: rgb(195, 195, 93);
+}
+
+.card .btnDiv>button:nth-child(2) {
+    background-color: rgb(250, 130, 128);
+}
+
+.card .btnDiv>button:active {
+    color: #994545;
+}
+
+
+
+/* form */
 
 form {
     background-color: white;
@@ -180,6 +225,10 @@ form button {
     border-radius: 5px;
     cursor: pointer;
     align-self: center;
+}
+
+form button:active {
+    color: #994545;
 }
 
 footer a {

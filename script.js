@@ -1,13 +1,8 @@
+
 const myLibrary = [
-    new Book ('The Seven Husbands of Evelyn Hugo test test test test test', 'Taylor Jenkins Reid Test test test test', 320, 'Finished'),
+    new Book ('The Seven Husbands of Evelyn Hugo', 'Taylor Jenkins Reid', 320, 'Finished'),
     new Book ('To Kill a Mockingbird', 'Harper Lee',421, 'Not Read Yet'),
     new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
-    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
-    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
-    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
-    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
-    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
-    new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet')
 ];
 
 function Book(title, author, pages, readStatus) {
@@ -26,6 +21,7 @@ Book.prototype.toggleReadStatus = function() {
     } else if (this.readStatus === "Finished") {
         this.readStatus = "Not Read Yet";
     }
+
 };
 
 function displayBooks(myLibrary) {
@@ -33,7 +29,6 @@ function displayBooks(myLibrary) {
   
     // Clear any existing content in the container
     booksContainer.innerHTML = '';
-  
     // Loop through the array of book objects
     for (let i = 0; i < myLibrary.length; i++) {
       let book = myLibrary[i];
@@ -43,6 +38,21 @@ function displayBooks(myLibrary) {
       // Create a card element for each book
       const card = document.createElement('div');
       card.classList.add('card');
+      card.addEventListener('click', function(event){
+        // Check if the clicked element is the button
+               if (event.target.tagName === 'BUTTON') {
+                   const targetedStatus = card.querySelector('[data-color]');
+                   const colorStatus = targetedStatus.getAttribute('data-color');
+
+                   targetedStatus.classList.add('color-toggle');
+                   // setTimeout(function() {
+                   //   targetedStatus.classList.remove('color-toggle');
+                   // }, 1000);
+                   console.log(targetedStatus);
+                   console.log(colorStatus);
+
+           }
+     })
   
       // Create elements for book information
       const title = document.createElement('h3');
@@ -56,6 +66,8 @@ function displayBooks(myLibrary) {
 
       const readStatus = document.createElement('p');
       readStatus.textContent = book.readStatus;
+      readStatus.setAttribute("data-color", bookIndex);
+    //   readStatus.classList.add('color-toggle');
 
       const removeButton = document.createElement("button");
       removeButton.innerHTML = "Remove";
@@ -67,14 +79,20 @@ function displayBooks(myLibrary) {
       editBtn.setAttribute("data-edit", bookIndex);
       editBtn.addEventListener("click", toggleReadStatus);
       
-  
+
+
+      const btnDiv = document.createElement('div');
+      btnDiv.classList.add('btnDiv')
+      
+
       // Append book information to the card
       card.appendChild(title);
       card.appendChild(author);
       card.appendChild(pages);
       card.appendChild(readStatus);
-      card.appendChild(removeButton);
-      card.appendChild(editBtn);
+      card.appendChild(btnDiv);
+      btnDiv.appendChild(editBtn);
+      btnDiv.appendChild(removeButton);
   
       // Append the card to the books container
       booksContainer.appendChild(card);
@@ -94,9 +112,7 @@ function removeBook(event) {
     const index = event.target.getAttribute("data-remove"); // Get the index from the data-attribute
     myLibrary.splice(index, 1); // Remove the book from the library array
     displayBooks(myLibrary); // Redisplay the updated library
-}  
-
-displayBooks(myLibrary);
+}
 
 document.getElementById("myForm").addEventListener("submit", function(event) {
     event.preventDefault();
@@ -111,3 +127,6 @@ document.getElementById("myForm").addEventListener("submit", function(event) {
 
     document.getElementById('myForm').reset();
 });
+
+displayBooks(myLibrary);
+
