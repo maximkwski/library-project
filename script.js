@@ -38,22 +38,23 @@ function displayBooks(myLibrary) {
       // Create a card element for each book
       const card = document.createElement('div');
       card.classList.add('card');
-      card.addEventListener('click', function(event){
-        // Check if the clicked element is the button
-               if (event.target.tagName === 'BUTTON') {
-                   const targetedStatus = card.querySelector('[data-color]');
-                   const colorStatus = targetedStatus.getAttribute('data-color');
 
-                   targetedStatus.classList.add('color-toggle');
+    //   card.addEventListener('click', function(event){
+    //     // Check if the clicked element is the button
+    //            if (event.target.tagName === 'BUTTON') {
+    //                const targetedStatus = card.querySelector('[data-color]');
+    //                const colorStatus = targetedStatus.getAttribute('data-color');
+
+    //                targetedStatus.classList.add('color-toggle');
                    
-                //    setTimeout(function() {
-                //      targetedStatus.classList.remove('color-toggle');
-                //    }, 1000);
-                   console.log(targetedStatus);
-                   console.log(colorStatus);
+    //             //    setTimeout(function() {
+    //             //      targetedStatus.classList.remove('color-toggle');
+    //             //    }, 1000);
+    //                console.log(targetedStatus);
+    //                console.log(colorStatus);
 
-           }
-     })
+    //        }
+    //  })
   
       // Create elements for book information
       const title = document.createElement('h3');

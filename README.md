@@ -1,4 +1,6 @@
 # library-project
+*Objects and Object consturctor project*
+
 live at: https://maximkwski.github.io/library-project/
 
 *The library*
