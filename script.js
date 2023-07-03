@@ -1,28 +1,31 @@
 
+
+
+class Book {
+    constructor(title, author, pages, readStatus) {
+      this.title = title;
+      this.author = author;
+      this.pages = pages;
+      this.readStatus = readStatus;
+    }
+
+    toggleReadStatus() {
+        if (this.readStatus === 'Not Read Yet') {
+          this.readStatus = 'In Process';
+        } else if (this.readStatus === 'In Process') {
+          this.readStatus = 'Finished';
+        } else if (this.readStatus === 'Finished') {
+          this.readStatus = 'Not Read Yet';
+        }
+      }
+
+}
+
 const myLibrary = [
     new Book ('The Seven Husbands of Evelyn Hugo', 'Taylor Jenkins Reid', 320, 'Finished'),
     new Book ('To Kill a Mockingbird', 'Harper Lee',421, 'Not Read Yet'),
     new Book ('The Alchemist', 'Paulo Coelho', 288, 'Not Read Yet'),
 ];
-
-function Book(title, author, pages, readStatus) {
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.readStatus = readStatus
-}
-
-// Prototype function to toggle the read status
-Book.prototype.toggleReadStatus = function() {
-    if (this.readStatus === "Not Read Yet") {
-        this.readStatus = "In Process";
-    } else if (this.readStatus === "In Process") {
-        this.readStatus = "Finished";
-    } else if (this.readStatus === "Finished") {
-        this.readStatus = "Not Read Yet";
-    }
-
-};
 
 function displayBooks(myLibrary) {
     let booksContainer = document.getElementById('books-collection');
@@ -38,23 +41,6 @@ function displayBooks(myLibrary) {
       // Create a card element for each book
       const card = document.createElement('div');
       card.classList.add('card');
-
-    //   card.addEventListener('click', function(event){
-    //     // Check if the clicked element is the button
-    //            if (event.target.tagName === 'BUTTON') {
-    //                const targetedStatus = card.querySelector('[data-color]');
-    //                const colorStatus = targetedStatus.getAttribute('data-color');
-
-    //                targetedStatus.classList.add('color-toggle');
-                   
-    //             //    setTimeout(function() {
-    //             //      targetedStatus.classList.remove('color-toggle');
-    //             //    }, 1000);
-    //                console.log(targetedStatus);
-    //                console.log(colorStatus);
-
-    //        }
-    //  })
   
       // Create elements for book information
       const title = document.createElement('h3');
