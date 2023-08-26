@@ -39,6 +39,18 @@ function deleteBook(book) {
 
 function displayBooks() {
       let booksContainer = document.getElementById('books-collection');
+
+      const burgerMenu = document.createElement('div');
+      burgerMenu.classList.add('burger-menu');
+      burgerMenu.id = 'burger';
+      for (let i = 0; i < 3; i++) {
+          const bar = document.createElement('span');
+          bar.classList.add('bar');
+          burgerMenu.appendChild(bar);
+      }
+      const header = document.querySelector('.header')
+      header.appendChild(burgerMenu);
+
     
       // Clear any existing content in the container
       booksContainer.innerHTML = '';
@@ -109,6 +121,14 @@ function displayBooks() {
           displayBooks();
         });
 
+
+      });
+
+      burgerMenu.addEventListener("click", () => {
+        const formDiv = document.querySelector('.form-container');
+        formDiv.classList.toggle("active");
+        burgerMenu.classList.toggle("burg-active");
+        console.log('click');
 
       });
       
