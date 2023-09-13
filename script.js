@@ -139,7 +139,7 @@ function displayBooks() {
 
 document.getElementById("myForm").addEventListener("submit", e => {
   e.preventDefault();
-
+  
  
   let newTitle = document.getElementById('title').value;
   let newAuthor = document.getElementById('author').value;
